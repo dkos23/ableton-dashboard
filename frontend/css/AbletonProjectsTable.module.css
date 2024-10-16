@@ -1,0 +1,93 @@
+/* Search Input Styling */
+.search-container {
+  display: flex;
+  justify-content: space-between; /* Align search input and total projects found */
+  align-items: center; /* Vertically align elements */
+  margin-bottom: 16px;
+}
+
+.search-input {
+  background-color: #2b2b2b; /* Dark background */
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.search-input input {
+  color: #ffffff; /* White text */
+}
+
+.search-input .MuiInputLabel-root {
+  color: #ffffff; /* White label */
+}
+
+.search-input .MuiOutlinedInput-root fieldset {
+  border-color: #555555; /* Darker border */
+}
+
+.search-input .MuiOutlinedInput-root:hover fieldset {
+  border-color: #ffffff; /* White border on hover */
+}
+
+.search-input .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: #3f51b5; /* Blue border when focused */
+}
+
+/* Total Projects Styling */
+.total-projects {
+  margin-left: 20px;
+  color: white;
+}
+
+/* Table Styling */
+.table-container {
+  width: 100%; /* Set the table container to take up full width */
+  margin: 0 auto; /* Center the table */
+  max-width: 2400px; /* Set a max-width to control the maximum width */
+}
+
+.table-header-cell {
+  color: white;
+  font-weight: bold;
+}
+
+.table-cell {
+  color: white;
+}
+
+.dashboard-description {
+  color: gray;
+  margin-bottom: 16px; /* Adjusts gutter-bottom space */
+  line-height: 1.5; /* Adjusts line height for better readability */
+  font-size: 16px; /* Matches the body1 variant size */
+}
+
+/* Project Link Styling */
+.project-link {
+  color: #3f94b5;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.project-link:hover {
+  color: #55c1d4;
+}
+
+/* Styling for the CSV Export Button */
+.export-button {
+  margin-left: 20px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.export-button:hover {
+  background-color: #303f9f;
+}

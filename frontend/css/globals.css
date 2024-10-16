@@ -1,0 +1,12 @@
+/* frontend/css/globals.css */
+
+/* Reset global body and html padding/margins */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #121212; /* Ensure full dark background */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+  }
+  
