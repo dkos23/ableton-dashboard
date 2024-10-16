@@ -19,6 +19,8 @@ class AbletonProjectsTable extends Component {
       loading: true,
       fileCount: 0,
     };
+    // Bind the exportToCsv function to this class component
+    this.exportToCsv = this.exportToCsv.bind(this);
   }
 
   // Fetch the ALS project files and tempo from the server on component mount
@@ -40,8 +42,16 @@ class AbletonProjectsTable extends Component {
   // CSV Export functionality
   exportToCsv = async () => {
     try {
+      const startPath = localStorage.getItem('startPath');
+      if (!startPath) {
+        console.error('START_PATH not found in local storage');
+        return;
+      }
+      console.log('START_PATH for csv export: ' + startPath);
+
       // Send a request to the backend to download the CSV file
       const response = await axios.get(`${apiUrl}/export-csv`, {
+        params: { startPath }, // Send startPath as a query parameter
         responseType: 'blob', // Get the response as a Blob for file download
       });
 
@@ -61,6 +71,9 @@ class AbletonProjectsTable extends Component {
     }
   };
 
+  /**
+   * 
+   */
   fetchProjectFiles = async () => {
     this.setState({ loading: true });  // Set loading state to true before fetching
     try {
@@ -165,43 +178,43 @@ class AbletonProjectsTable extends Component {
         {/* Conditionally show description text only when loading */}
         {loading && (
           <Typography variant="body1" className={styles['dashboard-description']}>
-            This dashboard displays all your Ableton Live project files along with their tempo, modified date, samples used.<br/>
+            This dashboard displays all your Ableton Live project files along with their tempo, modified date, samples used.<br/><br/>
             Lean back, have a beer or a smoke while we are searching...
           </Typography>
         )}
 
         {/* Search Input and Total Projects Found side by side */}
-        <Box display="flex" alignItems="center" justifyContent="space-between" className={styles['search-container']}>
-          <TextField
-            label="Search Projects"
-            variant="outlined"
-            value={searchTerm}
-            onChange={this.handleSearchChange}
-            className={styles['search-input']}
-            InputProps={{
-              className: styles['search-input'],
-            }}
-          />
+        {!loading && (
+          <Box display="flex" alignItems="center" justifyContent="space-between" className={styles['search-container']}>
+            <TextField
+              label="Search Projects"
+              variant="outlined"
+              value={searchTerm}
+              onChange={this.handleSearchChange}
+              className={styles['search-input']}
+              InputProps={{
+                className: styles['search-input'],
+              }}
+            />
 
-          {/* Total Projects Found  and Export CSV*/}
-          {!loading && (
+            {/* Total Projects Found  and Export CSV */}
             <Typography className={styles['total-projects']}>
               Total Projects Found: {fileCount}
             </Typography>
-          )}
-          {!loading && (
+
             <Button
-            className={styles['export-button']}
-            onClick={() => window.open(`${apiUrl}/export-csv`, '_blank')}
-          >
+              className={styles['export-button']}
+              // onClick={() => window.open(`${apiUrl}/export-csv`, '_blank')}
+              onClick={this.exportToCsv}
+            >
               Export CSV
             </Button>
-          )}
-        </Box>
+          </Box>
+        )}
 
         {/* Show loading spinner while data is being fetched */}
         {loading ? (
-          <Box display="flex" justifyContent="center" alignItems="center" minHeight="50vh">
+          <Box className={styles['loading-container']}>
             <CircularProgress color="secondary" />
           </Box>
         ) : (

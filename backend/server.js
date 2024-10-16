@@ -115,8 +115,14 @@ async function searchFiles(dir, ext) {
  * API endpoint to search for Ableton .als files and their tempo
  */
 app.get('/search', async (req, res) => {
+    // Get the startPath from the request's query parameters
+    const { startPath } = req.query;
+    if (!startPath) {
+        return res.status(400).json({ error: 'Start path is required' });
+    }
+
     try {
-        const files = await searchFiles(config.START_PATH, config.FILE_EXTENSION);
+        const files = await searchFiles(startPath, config.FILE_EXTENSION);
         const fileCount = files.length;
 
         // Log the total number of found files
@@ -162,9 +168,15 @@ function findManualTempoInStructure(xmlStructure) {
  * API endpoint to export the fetched project files to CSV.
  */
 app.get('/export-csv', async (req, res) => {
+    // Get the startPath from the request's query parameters
+    const { startPath } = req.query;
+    if (!startPath) {
+        return res.status(400).json({ error: 'Start path is required' });
+    }
+
     try {
         // First, fetch the project files
-        const files = await searchFiles(config.START_PATH, config.FILE_EXTENSION);
+        const files = await searchFiles(startPath, config.FILE_EXTENSION);
 
         // Structure the data for CSV
         const csvData = files.map((file) => ({

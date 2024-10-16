@@ -76,9 +76,9 @@ const AbletonDashboard = () => {
     return <Typography variant="h5" color="error">Error: {error}</Typography>;
   }
 
-  if (!data || !data.Ableton || !data.Ableton.Tracks) {
-    return <Typography variant="h5">No data available</Typography>;
-  }
+  // if (!data || !data.Ableton || !data.Ableton.Tracks) {
+  //   return <Typography variant="h5">No data available</Typography>;
+  // }
 
   const { AudioTrack, MidiTrack } = data.Ableton.Tracks;
 

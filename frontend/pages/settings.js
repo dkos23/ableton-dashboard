@@ -61,6 +61,7 @@ const Settings = () => {
     } else {
       // Save the START_PATH to local storage
       localStorage.setItem('startPath', startPath);
+      localStorage.setItem('donationAmount', donationAmount);
       console.log('Settings saved:', startPath, donationAmount);
       // Go back to the main page after saving
       router.push('/');

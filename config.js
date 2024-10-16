@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 module.exports = {
-    START_PATH: "D:/My Music/STUDIO/Ableton11",
     FILE_EXTENSION: '.als',
     PORT: process.env.PORT || 3001,
     SERVER_URL: process.env.SERVER_URL || 'http://localhost:3001', 

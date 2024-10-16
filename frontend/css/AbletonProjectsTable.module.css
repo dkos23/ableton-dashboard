@@ -9,7 +9,7 @@
 .search-input {
   background-color: #2b2b2b; /* Dark background */
   border-radius: 4px;
-  padding: 10px;
+  padding: 1px;
   width: 100%;
   max-width: 300px;
 }
@@ -34,7 +34,24 @@
   border-color: #3f51b5; /* Blue border when focused */
 }
 
-/* Total Projects Styling */
+.dashboard-description {
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  margin-bottom: 16px; /* Adjusts gutter-bottom space */
+  line-height: 1.5; /* Adjusts line height for better readability */
+  font-size: 16px; /* Matches the body1 variant size */
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
 .total-projects {
   margin-left: 20px;
   color: white;
@@ -44,7 +61,7 @@
 .table-container {
   width: 100%; /* Set the table container to take up full width */
   margin: 0 auto; /* Center the table */
-  max-width: 2400px; /* Set a max-width to control the maximum width */
+  max-width: 2400px;
 }
 
 .table-header-cell {
@@ -54,13 +71,6 @@
 
 .table-cell {
   color: white;
-}
-
-.dashboard-description {
-  color: gray;
-  margin-bottom: 16px; /* Adjusts gutter-bottom space */
-  line-height: 1.5; /* Adjusts line height for better readability */
-  font-size: 16px; /* Matches the body1 variant size */
 }
 
 /* Project Link Styling */
