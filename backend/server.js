@@ -14,8 +14,6 @@ const app = express();
 // const PORT = 3001;
 const config = require('../config');
 
-const inflate = promisify(zlib.inflate); // Promisify zlib's inflate function
-
 // Enable CORS for all origins
 // app.use(cors());
 app.use(cors({

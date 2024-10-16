@@ -4,8 +4,6 @@ const nextConfig = {
   images: {
     unoptimized: true, // For static sites, disables Next.js' image optimization
   },
-  // Add basePath if needed for GitHub Pages hosting
-  basePath: '/ableton-dashboard',
 };
 
 module.exports = nextConfig;
