@@ -108,7 +108,7 @@ Dockerfile
 .idea/
 
 # Ignore package lock and yarn lock
-package-lock.json
+# package-lock.json
 yarn.lock
 .pnpm-debug.log
 .pnpm/
