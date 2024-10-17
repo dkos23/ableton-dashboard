@@ -1,5 +1,55 @@
 {
+  "name": "ableton-dashboard",
+  "version": "1.0.0",
+  "description": "An Ableton Dashboard using Next.js, Express, and Electron",
+  "author": "CoreSignal",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run electron\"",
+    "backend": "node backend/server.js",
+    "frontend": "next dev",
+    "electron": "wait-on http://localhost:3000 && electron .",
+    "build": "next build",
+    "start": "next start",
+    "dist": "electron-builder"
+  },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.4",
+    "@mui/material": "^6.1.4",
+    "dotenv": "^16.4.5",
+    "electron-is-dev": "^3.0.1",
+    "express": "^4.21.1",
+    "glob": "^11.0.0",
+    "next": "^14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@electron/asar": "^3.2.13",
+    "@electron/osx-sign": "^1.3.1",
+    "concurrently": "^9.0.1",
+    "electron": "^33.0.1",
+    "electron-builder": "^25.1.8",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "com.ableton-dashboard",
+    "files": [
+      "frontend/**/*",
+      "backend/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   }
 }

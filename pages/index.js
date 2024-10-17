@@ -1,6 +1,6 @@
 
 import React from 'react';
-import AbletonDashboard from '../components/AbletonDashboard';
+import AbletonDashboard from '../frontend/components/AbletonDashboard';
 
 export default function Home() {
   return (

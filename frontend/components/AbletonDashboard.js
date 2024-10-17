@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Container, Typography, Box, AppBar, Toolbar, IconButton, Menu, MenuItem, CssBaseline } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import axios from 'axios';
 import { useRouter } from 'next/router'; 
 import AbletonTrackTable from './AbletonTrackTable';
 import AbletonProjectsTable from './AbletonProjectsTable';
@@ -25,6 +24,13 @@ const darkTheme = createTheme({
 const AbletonDashboard = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const router = useRouter(); // Initialize the Next.js router
+
+  useEffect(() => {
+    // Ensure that this code only runs on the client-side
+    if (typeof window !== 'undefined') {
+      // Any code that uses useState can safely be used here
+    }
+  }, []);
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
