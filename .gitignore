@@ -94,6 +94,9 @@ yarn-debug.log*
 logs/
 *.log
 
+# Distribution
+dist/
+
 # Backup files
 *.bak
 *.swp
